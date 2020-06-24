@@ -3,19 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Modulos
 import { PagesRoutingModule } from './pages/pages.routing';
-
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { AuthRoutingModule } from './auth/auth.routing';
 
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 
 const routes: Routes = [
-  
-  
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
 
+  // path: '/dashboard' PagesRouting
+  // path: '/auth' AuthRouting
+  // path: '/medicos' MedicosRouting
+  // path: '/compras' ComprasRouting
+  
   { path: '**', component: NopagefoundComponent },
 ];
 
@@ -24,7 +23,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot( routes ),
-    PagesRoutingModule
+    PagesRoutingModule,
+    AuthRoutingModule
   ],
   exports: [ RouterModule ]
 })
