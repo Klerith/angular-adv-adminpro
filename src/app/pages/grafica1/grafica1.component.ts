@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
 
 
 @Component({
@@ -12,9 +10,9 @@ import { MultiDataSet, Label } from 'ng2-charts';
 })
 export class Grafica1Component {
 
-  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: MultiDataSet = [
-    [350, 450, 100],
+  public labels1: string[] = ['Pan', 'Refresco', 'Tacos'];
+  public data1 = [
+    [10, 15, 40],
   ];
 
 }
