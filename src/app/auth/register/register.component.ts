@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2'
+
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -20,17 +24,30 @@ export class RegisterComponent {
     validators: this.passwordsIguales('password', 'password2')
   });
 
-  constructor( private fb: FormBuilder ) { }
+  constructor( private fb: FormBuilder,
+               private usuarioService: UsuarioService,
+               private router: Router ) { }
 
   crearUsuario() {
     this.formSubmitted = true;
     console.log( this.registerForm.value );
 
-    if ( this.registerForm.valid ) {
-      console.log('posteando formulario')
-    } else {
-      console.log('Formulario no es correcto...');
+    if ( this.registerForm.invalid ) {
+      return;
     }
+
+    // Realizar el posteo
+    this.usuarioService.crearUsuario( this.registerForm.value )
+        .subscribe( resp => {
+          
+          // Navegar al Dashboard
+          this.router.navigateByUrl('/');
+
+        }, (err) => {
+          // Si sucede un error
+          Swal.fire('Error', err.error.msg, 'error' );
+        });
+
 
   }
 
