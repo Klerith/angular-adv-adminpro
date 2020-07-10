@@ -1,0 +1,74 @@
+
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Mi perfil de usuario</h4>
+                <h6 class="card-subtitle">Ajustes</h6>
+
+                <form class="form p-t-20" 
+                        [formGroup]="perfilForm"
+                        (submit)="actualizarPerfil()">
+
+                    <div class="form-group">
+                        <label for="exampleInputuname">User Name</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input type="text"
+                                    class="form-control"
+                                    id="exampleInputuname"
+                                    placeholder="Nombre del usuario"
+                                    formControlName="nombre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input type="email" 
+                                    class="form-control" 
+                                    id="exampleInputEmail1" 
+                                    placeholder="Email"
+                                    formControlName="email">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="btn btn-success btn-block waves-effect waves-light m-r-10"
+                            [disabled]="perfilForm.invalid">
+                        <i class="fa fa-save"></i>
+                        Guardar cambios
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Avatar</h4>
+                <h6 class="card-subtitle">Imagen del usuario</h6>
+
+                <img src="">
+
+                <input type="file">
+
+                <br>
+                <br>
+
+                <button type="button" class="btn btn-success btn-block waves-effect waves-light m-r-10">
+                    <i class="fa fa-save"></i>
+                    Cambiar imagen
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
