@@ -1,6 +1,6 @@
 
 <div class="row">
-    <div class="col">
+    <div class="col-md-6">
         <div class="card">
             <div class="card-body">
                 
@@ -11,11 +11,12 @@
                         [formGroup]="medicoForm"
                         (submit)="guardarMedico()">
 
-                    <div class="form-group row">
+                    <div class="form-group row"
+                            *ngIf="medicoSeleccionado">
                         <label for="exampleInputuname3" class="col-sm-3 control-label">Foto</label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <img src="http://localhost:3000/api/upload/medicos/1d2821dc-1ad3-4661-b29c-5876c673c317.jpg" 
+                                <img [src]="medicoSeleccionado.img | imagen: 'medicos'" 
                                      class="w200"/>
                             </div>
                         </div>
@@ -66,15 +67,16 @@
         </div>
     </div>
 
-    <div class="col">
+    <div class="col animated fadeIn fast"  
+        *ngIf="hospitalSeleccionado">
         <div class="card">
             <div class="card-body">
                 
                 <h4 class="card-title">Hospital</h4>
-                <h6 class="card-subtitle">Hospital asignado</h6>
+                <h6 class="card-subtitle">{{ hospitalSeleccionado.nombre }}</h6>
 
-                <img src="http://localhost:3000/api/upload/medicos/1d2821dc-1ad3-4661-b29c-5876c673c317.jpg" 
-                    class="w200"/>
+                <img [src]="hospitalSeleccionado.img | imagen:'hospitales'" 
+                    class="img-thumbnail"/>
 
             </div>
         </div>
